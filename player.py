@@ -17,5 +17,8 @@ class Player(Item):
         self.status(bool) : アイテムの状態（Trueなら存在する、Falseなら存在しない消滅した）
     """
 
-    def __init__(self, x, y) -> None:
+    def __init__(self, x: int, y: int) -> None:
+        pass
+
+    def get_next_pos(self, dir: tuple[int, int]) -> tuple[int, int]:
         pass
