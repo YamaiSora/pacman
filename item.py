@@ -41,4 +41,29 @@ class Item:
             >>> item.status
             True
             """
-        pass 
+        self.now_x = x  # 現在のx座標
+        self.now_y = y  # 現在のy座標
+        self.next_x = x  # 次の時刻でのx座標
+        self.next_y = y  # 次の時刻でのy座標
+        self.status = True  # アイテムの状態(存在するか消滅したか)
+        self.icon = ""
+
+    def get_next_pos(self) -> tuple[int, int]:
+        """
+        次の時刻の座標を取得するメソッド
+        デフォルトでは現在の座標を返すため，子クラスでオーバーライドすることを想定している．
+
+        Returns:
+            tuple[int, int]: 現在の座標
+
+        Examples:
+            >>> item = Item(2, 3)
+            >>> item.get_next_pos()
+            (2, 3)
+        """
+        pass
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
