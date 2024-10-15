@@ -42,4 +42,7 @@ class Player(Item):
             (2, 4)
 
         """
-      pass
+     pass
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
