@@ -8,6 +8,7 @@ class Field:
 
     Attributes:
         players (list[Player]): プレイヤーのリスト
+        field (list[list[str]]): フィールドの情報
     """
     pass
 
@@ -31,6 +32,13 @@ class Field:
         Examples:
             >>> p = [Player(1, 0)]
             >>> p[0].icon = "p1"
+            >>> field = Field(p)
+            >>> field.update_field()[0]
+            ['\\u3000', 'p1', '\\u3000']
+            >>> field.update_field()[1]
+            ['\\u3000', '\\u3000', '\\u3000']
+            >>> field.update_field()[2]
+            ['\\u3000', '\\u3000', '\\u3000']
         """
         pass
 
@@ -47,6 +55,7 @@ class Field:
             d: 右に移動
              p1
         """
+        # 動きか方を表示
         print("w: 上に移動")
         print("a: 左に移動")
         print("s: 下に移動")
