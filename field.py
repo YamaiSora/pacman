@@ -20,6 +20,8 @@ class Field:
         Args:
             players (list[Player]): プレイヤーのリスト
         """
+        self.field = [["　" for _ in range(3)] for _ in range(3)]
+        self.players = players
         pass
 
     def update_field(self) -> list[list[str]]:
@@ -40,7 +42,15 @@ class Field:
             >>> field.update_field()[2]
             ['\\u3000', '\\u3000', '\\u3000']
         """
-        pass
+        # fieldを一旦すべて空白にする
+        for i in range(3):
+            for j in range(3):
+                self.field[i][j] = "　"
+        #  Fieldを更新する処理を記述
+        for player in self.players:
+            if player.status:
+                self.field[player.now_y][player.now_x] = player.icon
+        return self.field
 
     def display_field(self) -> None:
         """
@@ -53,20 +63,19 @@ class Field:
             a: 左に移動
             s: 下に移動
             d: 右に移動
-             p1
+            　p1　
+            　　　
+            　　　
         """
         # 動きか方を表示
         print("w: 上に移動")
         print("a: 左に移動")
         print("s: 下に移動")
         print("d: 右に移動")
-        for y in range(5):
-            for x in range(5):
-                if Player.x == x and Player.y == y:
-                    print("p1")
-                else:
-                    print(" ")
-            print("\n")
+
+        for row in self.field:
+            # 各行の文字列を作成し、不足分を空白文字で埋める
+            print(row)
 
 
 if __name__ == "__main__":
