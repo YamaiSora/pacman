@@ -16,7 +16,8 @@ class Item:
     """
 
     def __init__(self, x, y) -> None:
-        """Itemクラスのコンストラクタ
+        """
+        Itemクラスのコンストラクタ
         引数にx座標とy座標を受け取り、それぞれの座標を初期化する
 
         Args:
@@ -40,7 +41,7 @@ class Item:
             ''
             >>> item.status
             True
-            """
+        """
         self.now_x = x  # 現在のx座標
         self.now_y = y  # 現在のy座標
         self.next_x = x  # 次の時刻でのx座標
@@ -61,7 +62,22 @@ class Item:
             >>> item.get_next_pos()
             (2, 3)
         """
-        pass
+        return (self.now_x, self.now_y)
+
+    def get_pos(self) -> tuple[int, int]:
+        """
+        次の時刻の座標を取得するメソッド
+        デフォルトでは現在の座標を返すため，子クラスでオーバーライドすることを想定している．
+
+        Returns:
+            tuple[int, int]: 現在の座標
+
+        Examples:
+            >>> item = Item(2, 3)
+            >>> item.get_pos()
+            (2, 3)
+        """
+        return (self.now_x, self.now_y)
 
 
 if __name__ == "__main__":

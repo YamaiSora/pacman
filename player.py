@@ -17,8 +17,9 @@ class Player(Item):
         self.status(bool) : アイテムの状態（Trueなら存在する、Falseなら存在しない消滅した）
     """
 
-    def __init__(self, x: int, y: int) -> None:
-        pass
+    def __init__(self, x, y) -> None:
+        super().__init__(x, y)
+        self.icon = "😶"
 
     def get_next_pos(self, dir: tuple[int, int]) -> tuple[int, int]:
         """
@@ -41,8 +42,11 @@ class Player(Item):
             >>> player = Player(2, 3)
             >>> player.get_next_pos((0, 1))
             (2, 4)
+
         """
-        pass
+        self.next_x = self.now_x + dir[0]
+        self.next_y = self.now_y + dir[1]
+        return (self.next_x, self.next_y)
 
 
 if __name__ == "__main__":
