@@ -22,7 +22,8 @@ class Field:
         """
         self.field = [["　" for _ in range(3)] for _ in range(3)]
         self.players = players
-        pass
+        # それぞれのアイテムの位置をFieldに反映
+        self.update_field()
 
     def update_field(self) -> list[list[str]]:
         """
@@ -59,6 +60,8 @@ class Field:
         Examples:
             >>> p = [Player(1, 0)]
             >>> p[0].icon = "p1"
+            >>> field = Field(p)
+            >>> field.display_field()
             w: 上に移動
             a: 左に移動
             s: 下に移動
@@ -72,10 +75,12 @@ class Field:
         print("a: 左に移動")
         print("s: 下に移動")
         print("d: 右に移動")
-
+        # print(self.field, type(self.field))
         for row in self.field:
-            # 各行の文字列を作成し、不足分を空白文字で埋める
-            print(row)
+            for sow in row:
+                # 各行の文字列を作成し、不足分を空白文字で埋める
+                print(sow, end="")
+            print()
 
 
 if __name__ == "__main__":
