@@ -21,7 +21,7 @@ class Player(Item):
         super().__init__(x, y)
         self.icon = "😶"
 
-    def get_next_pos(self, dir: tuple[int, int]) -> tuple[int, int]:
+    def get_next_pos(self, dir: tuple[int, int]) -> tuple[int, int]:  # type: ignore
         """
         入力から移動方向を受け取って移動しようとする方向を計算して次の座標を返すメソッド
         引数にキー入力から受け取った次に移動したい方向をとり,
@@ -43,9 +43,11 @@ class Player(Item):
             >>> player.get_next_pos((0, 1))
             (2, 4)
 
-        """
+    """
         self.next_x = self.now_x + dir[0]
         self.next_y = self.now_y + dir[1]
+        self.now_x = self.next_x
+        self.now_y = self.next_y
         return (self.next_x, self.next_y)
 
 
