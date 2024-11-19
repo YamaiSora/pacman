@@ -58,52 +58,19 @@ python main.py -h
 - プロジェクトの構成は以下の通り．
 ```shell
 .
-├── README.md
-├── config.py
-├── controller.py
-├── field.py
-├── game.py
-├── item.py
-├── main.py
-├── player.py
-├── requirements.txt
-├── result
-│   ├── 20240910_162750
-│   │   ├── log.log
-│   │   └── parameters.json
-│   ├── 20241105_172507
-│   │   ├── log.log
-│   │   └── parameters.json
-│   ├── 20241112_165507
-│   │   ├── log.log
-│   │   └── parameters.json
-│   ├── 20241112_165932
-│   │   ├── log.log
-│   │   └── parameters.json
-│   ├── 20241112_170131
-│   │   ├── log.log
-│   │   └── parameters.json
-│   ├── 20241112_170155
-│   │   ├── log.log
-│   │   └── parameters.json
-│   ├── 20241112_170414
-│   │   ├── log.log
-│   │   └── parameters.json
-│   ├── 20241112_170632
-│   │   ├── log.log
-│   │   └── parameters.json
-│   ├── 20241112_172340
-│   │   ├── log.log
-│   │   └── parameters.json
-│   ├── 20241112_172411
-│   │   ├── log.log
-│   │   └── parameters.json
-│   ├── 20241112_174603
-│   │   ├── log.log
-│   │   └── parameters.json
+├── config.py #パラメータの定義
+├── controller.py # キーボードからの入力を受け取るクラス
+├── field.py # Fieldクラスはゲームのフィールドを担うクラス。フィールドの初期化やディスプレイを行なう。
+├── game.py # ゲームの初期設定とメインループを実行してゲームを実施するクラス
+├── item.py # Playerの親クラス
+├── main.py #　実行ファイル
+├── player.py #　playerクラス
+├── requirements.txt #　バージョン記載
+├── parameters.json #パラメータ指定用ファイル
+├── result # 結果出力ディレクトリ
 │   └── 20241112_174710
 │       ├── log.log
 │       └── parameters.json
-└── utils.py
+└── utils.py # 共有関数群
 ```
 \
