@@ -4,8 +4,11 @@
 このREADMEは雛形ですので，適宜修正してください．
 
 ## Requirement
-- Python 3.9
-
+- Python 3.12.5
+- flake8 7.1.1
+- mccabe 0.7.0
+- pycodestyle 2.12.1
+- pyflakes 3.2.0
 
 ## Installation
 - 結果出力用ディレクトリを作成
@@ -55,11 +58,52 @@ python main.py -h
 - プロジェクトの構成は以下の通り．
 ```shell
 .
-├── config.py           # パラメータ定義
-├── main.py             # 実行ファイル
-├── parameters.json     # パラメータ指定用ファイル
-├── result              # 結果出力ディレクトリ
-│   └── 20211026_165841
-└── utils.py            # 共有関数群
+├── README.md
+├── config.py
+├── controller.py
+├── field.py
+├── game.py
+├── item.py
+├── main.py
+├── player.py
+├── requirements.txt
+├── result
+│   ├── 20240910_162750
+│   │   ├── log.log
+│   │   └── parameters.json
+│   ├── 20241105_172507
+│   │   ├── log.log
+│   │   └── parameters.json
+│   ├── 20241112_165507
+│   │   ├── log.log
+│   │   └── parameters.json
+│   ├── 20241112_165932
+│   │   ├── log.log
+│   │   └── parameters.json
+│   ├── 20241112_170131
+│   │   ├── log.log
+│   │   └── parameters.json
+│   ├── 20241112_170155
+│   │   ├── log.log
+│   │   └── parameters.json
+│   ├── 20241112_170414
+│   │   ├── log.log
+│   │   └── parameters.json
+│   ├── 20241112_170632
+│   │   ├── log.log
+│   │   └── parameters.json
+│   ├── 20241112_172340
+│   │   ├── log.log
+│   │   └── parameters.json
+│   ├── 20241112_172411
+│   │   ├── log.log
+│   │   └── parameters.json
+│   ├── 20241112_174603
+│   │   ├── log.log
+│   │   └── parameters.json
+│   └── 20241112_174710
+│       ├── log.log
+│       └── parameters.json
+└── utils.py
 ```
 \
