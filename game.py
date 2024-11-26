@@ -5,6 +5,8 @@ from controller import UserInput
 from config import Parameters
 import logging
 import os
+import random
+
 
 
 logger = logging.getLogger(__name__)
@@ -69,12 +71,16 @@ class Game:
                 # キー入力を受け取る
                 key = user_input.get_user_input()
                 player.get_next_pos(key)
-                player.update_position()
             self.field.update_count(user_input.key_press_count)
             # fieldを更新
             self.field.update_field()
             # self.field.display_field()
             # 一定の間隔で処理を繰り返す
+            random_number = random.randint(0, 100)
+            print(user_input.key_press_count, random_number)
+            if user_input.key_press_count > random_number*2:
+                exit()
+
             # 0.3秒待つ
             time.sleep(0.3)
 
