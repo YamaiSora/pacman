@@ -46,9 +46,19 @@ class Player(Item):
     """
         self.next_x = self.now_x + dir[0]
         self.next_y = self.now_y + dir[1]
-        self.now_x = self.next_x
-        self.now_y = self.next_y
         return (self.next_x, self.next_y)
+
+    def is_next_ok(self) -> bool:
+        if (self.next_x == -1 or self.next_x == 3):
+            return False
+        if (self.next_y == -1 or self.next_y == 3):
+            return False
+        return True
+
+    def update_position(self):
+        if (self.is_next_ok()):
+            self.now_x = self.next_x
+            self.now_y = self.next_y
 
 
 if __name__ == "__main__":
