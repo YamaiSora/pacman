@@ -22,6 +22,7 @@ class Field:
         """
         self.field = [["　" for _ in range(3)] for _ in range(3)]
         self.players = players
+        self.score = 0
         # それぞれのアイテムの位置をFieldに反映
         self.update_field()
 
@@ -53,6 +54,9 @@ class Field:
                 self.field[player.now_y][player.now_x] = player.icon
         return self.field
 
+    def update_count(self, count: int):
+        self.score = count
+
     def display_field(self) -> None:
         """
         ディスプレイを行なう関数
@@ -75,6 +79,7 @@ class Field:
         print("a: 左に移動")
         print("s: 下に移動")
         print("d: 右に移動")
+        print("score:", self.score)
         # print(self.field, type(self.field))
         for row in self.field:
             for sow in row:

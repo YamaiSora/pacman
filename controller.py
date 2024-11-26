@@ -49,8 +49,7 @@ class UserInput:
     # クラス変数でキー押下回数をカウント
     key_press_count = 0
 
-    @staticmethod
-    def get_user_input() -> tuple[int, int, int]:
+    def get_user_input(self) -> tuple[int, int]:
         """ユーザの入力を受けとり、x, y座標の差分とキー押下回数を返す
         Returns:
             tuple[int, int, int]: x, y座標の差分とキー押下回数
@@ -58,26 +57,27 @@ class UserInput:
         # キー入力を受け取る
         key = InputWithoutEnter.input_without_enter()
         # キーが入力されたのでカウントを増やす
-        UserInput.key_press_count += 1
+        self.key_press_count += 1
         # 入力されたキーに対応する座標の差分を返す
         if key == "w":
-            return (0, -1, UserInput.key_press_count)
+            return (0, -1)
         elif key == "a":
-            return (-1, 0, UserInput.key_press_count)
+            return (-1, 0)
         elif key == "s":
-            return (0, 1, UserInput.key_press_count)
+            return (0, 1)
         elif key == "d":
-            return (1, 0, UserInput.key_press_count)
+            return (1, 0)
         else:
             # 無効なキーの場合、座標差分は(0, 0)
-            return (0, 0, UserInput.key_press_count)
+            return (0, 0)
 
 
 if __name__ == "__main__":
     print("キーを押してください (終了するには Ctrl+C):")
+    user_input = UserInput()
     try:
         while True:
-            x, y, count = UserInput.get_user_input()
-            print(f"x: {x}, y: {y}, キー押下回数: {count}")
+            x, y = user_input.get_user_input()
+            print(f"x: {x}, y: {y}, キー押下回数: {user_input.key_press_count}")
     except KeyboardInterrupt:
         print("\n終了します。")

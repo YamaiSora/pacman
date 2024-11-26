@@ -57,6 +57,7 @@ class Game:
             str: ゲーム終了時のメッセージ (例: "Game Over!", "Game Clear!")
         """
         # ゲームのメインループ
+        user_input = UserInput()
         while True:
             #  フィールドを表示
             os.system("cls" if os.name == "nt" else "clear")  # ターミナルをクリア
@@ -66,8 +67,9 @@ class Game:
             for player in self.players:
                 # self.field.display_field()
                 # キー入力を受け取る
-                key = UserInput.get_user_input()
+                key = user_input.get_user_input()
                 player.get_next_pos(key)
+            self.field.update_count(user_input.key_press_count)
             # fieldを更新
             self.field.update_field()
             # self.field.display_field()
