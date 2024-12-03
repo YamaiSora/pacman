@@ -55,6 +55,11 @@ class Field:
         return self.field
 
     def update_count(self, count: int):
+        """
+        キーボードで入力を行なった回数をself.scoreに代入する関数
+        Args:
+            count (int):入力回数を入れる変数
+        """
         self.score = count
 
     def display_field(self) -> None:
