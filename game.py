@@ -71,6 +71,7 @@ class Game:
                 # キー入力を受け取る
                 key = user_input.get_user_input()
                 player.get_next_pos(key)
+                player.update_position()
             self.field.update_count(user_input.key_press_count)
             # fieldを更新
             self.field.update_field()
